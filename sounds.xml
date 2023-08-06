@@ -1,5 +1,0 @@
-<Config>
-
-	<remove xpath="/Sounds/SoundDataNode[@name='keystone_impact_overlay']" />
-	
-</Config>

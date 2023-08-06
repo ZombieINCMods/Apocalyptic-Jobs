@@ -1,0 +1,41 @@
+<Config>
+<append xpath="/lootcontainers">
+
+
+<lootgroup name="ZombieINC_buriedchestDefenseConstructionT5" count="all">
+	<item name="ZombieINC_cobblestoneShapes:VariantHelper" count="60" loot_prob_template="guaranteed"/>
+</lootgroup> 
+   
+
+<lootcontainer id="553" name="ZombieINC_buriedSuppliesDefenseConstructionT5" count="1" size="8,9" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest" loot_quality_template="qualQ1Template">
+	<item group="ZombieINC_buriedchestDefenseConstructionT5"/>	
+</lootcontainer>
+
+
+
+<lootgroup name="ZombieINC_buriedchestDefenseConstructionT4" count="all">
+	<item name="ZombieINC_cobblestoneShapes:VariantHelper" count="60" loot_prob_template="guaranteed"/>
+</lootgroup> 
+   
+
+<lootcontainer id="553" name="ZombieINC_buriedSuppliesDefenseConstructionT4" count="1" size="8,9" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest" loot_quality_template="qualQ1Template">
+	<item group="ZombieINC_buriedchestDefenseConstructionT4"/>	
+</lootcontainer>
+
+
+
+
+<lootgroup name="ZombieINC_buriedchestDefenseConstructionT3" count="all">
+  <item name="ZombieINC_woodShapes:VariantHelper" count="40" loot_prob_template="guaranteed"/>  
+</lootgroup> 
+   
+
+<lootcontainer id="553" name="ZombieINC_buriedSuppliesDefenseConstructionT3" count="1" size="8,9" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest" loot_quality_template="qualQ1Template">
+	<item group="ZombieINC_buriedchestDefenseConstructionT3"/>	
+</lootcontainer>
+
+
+
+
+</append>
+</Config>
