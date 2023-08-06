@@ -1,0 +1,2068 @@
+<Config>
+
+
+	<insertAfter xpath="/quests/quest[@id='tier2_buried_supplies']">
+	
+	<!-- Tier 1-6 KillBoss Jobs -->
+	
+	<quest id="ZINCCraven">
+	 	    <property name="name_key" value="ZombieINC_challenge_tier1_KillBossCraven_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier1_KillBossCraven_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier1_KillBossCraven_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="true"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="medium"/>
+		    <property name="difficulty_tier" value="1"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier1_KillBossCraven_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier1_KillBossCraven_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier1_KillBossCraven_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier1_KillBossCraven_completion"/> 
+			
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="1"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="2"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+				<property name="optional" value="true" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="EntityKill">             
+				<property name="needed_count" value="3" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="3"/>
+				<property name="hidden" value="true"/>				
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_KillBossCraven" phase="4"/>
+			<!--<action type="GameEvent" id="ZombieINC_test1" phase="4"/>-->
+			
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossCraven_key" />
+				<property name="needed_count" value="1" />         
+				<property name="target_tags" value="BossCraven"/>
+				<property name="phase" value="4"/>							  
+			</objective> 
+			
+			<objective type="StayWithin" phase="4">
+				<property name="radius" value="60"/>
+			</objective>
+			
+			<objective type="ReturnToNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+			<reward type="Exp" value="4000"/>
+			<reward type="Item" id="casinoCoin" value="1200"/>
+
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestResources" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestAmmo,groupQuestResources,groupQuestMods,groupQuestT1SkillMagazineBundle" ischosen="true" value="1"/>
+		</quest>
+	
+	
+	<quest id="ZINCDog">
+	 	    <property name="name_key" value="ZombieINC_challenge_tier2_KillBossDog_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier2_KillBossDog_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier2_KillBossDog_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="true"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="very Hard"/>
+		    <property name="difficulty_tier" value="2"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier2_KillBossDog_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier2_KillBossDog_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier2_KillBossDog_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier2_KillBossDog_completion"/> 
+			
+			<action type="GameEvent" id="ZombieINC_BossDogGiveItem" phase="1"/>
+						
+			<objective type="Craft">
+				<property name="phase" value="1"/>
+				<property name="item" value="ZombieINC_BossDogBait"/>
+				<property name="count" value="1"/>
+			</objective>	
+								
+			<action type="GameEvent" id="ZombieINC_BossDogInQuestZoneEvent" phase="2"/>
+					
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossDog_key" />
+				<property name="needed_count" value="1" />           
+				<property name="target_tags" value="BossDog"/>
+				<property name="phase" value="2"/>							  
+			</objective>
+
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossDogMinion_key" />
+				<property name="needed_count" value="3" />          
+				<property name="target_tags" value="MinionDog"/>
+				<property name="phase" value="2"/>							  
+			</objective> 			
+						
+			<objective type="ReturnToNPC">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+			<reward type="Exp" value="6060"/>
+		<reward type="Item" id="casinoCoin" value="2000"/>
+		
+
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		</quest>
+	
+	
+	<quest id="ZINCBiker">
+	 	    <property name="name_key" value="ZombieINC_challenge_tier2_KillBossBiker_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier2_KillBossBiker_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier2_KillBossBiker_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="true"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="hard"/>
+		    <property name="difficulty_tier" value="2"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier2_KillBossBiker_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier2_KillBossBiker_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier2_KillBossBiker_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier2_KillBossBiker_completion"/> 
+			
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="1"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="2"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+				<property name="optional" value="true" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="EntityKill">             
+				<property name="needed_count" value="3" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="3"/>
+				<property name="hidden" value="true"/>							
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_KillBossBiker" phase="4"/>
+			
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossBiker_key" />
+				<property name="needed_count" value="1" />           
+				<property name="target_tags" value="BossBiker"/>
+				<property name="phase" value="4"/>							  
+			</objective> 
+					
+			<objective type="StayWithin" phase="4">
+				<property name="radius" value="60"/>
+			</objective>
+					
+			<objective type="ReturnToNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+			<reward type="Exp" value="6060"/>
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		</quest>
+	
+	
+	<quest id="ZINCMultiply">
+	 	    <property name="name_key" value="ZombieINC_challenge_tier3_KillBossMultiply_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier3_KillBossMultiply_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier3_KillBossMultiply_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="true"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="hard"/>
+		    <property name="difficulty_tier" value="3"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier3_KillBossMultiply_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier3_KillBossMultiply_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier3_KillBossMultiply_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier3_KillBossMultiply_completion"/>
+			
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="1"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="2"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+				<property name="optional" value="true" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="3" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="3"/>
+				<property name="hidden" value="true"/>							
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_KillBossMultiply" phase="4"/>
+			
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossMultiply_key" />
+				<property name="needed_count" value="1" />
+				<property name="target_tags" value="BossMultiply"/>
+				<property name="phase" value="4"/>							  
+			</objective> 
+			
+			<objective type="StayWithin" phase="4">
+				<property name="radius" value="60"/>
+			</objective>
+			
+			<objective type="ReturnToNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+			<reward type="Exp" value="10750"/>
+		<reward type="Item" id="casinoCoin" value="3000"/>
+
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+	
+	<quest id="ZINCFire">
+	 	    <property name="name_key" value="ZombieINC_challenge_tier3_KillBossFire_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier3_KillBossFire_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier3_KillBossFire_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="true"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="very hard"/>
+		    <property name="difficulty_tier" value="3"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier3_KillBossFire_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier3_KillBossFire_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier3_KillBossFire_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier3_KillBossFire_completion"/> 
+			
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="1"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="2"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+				<property name="optional" value="true" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="EntityKill">             
+				<property name="needed_count" value="3" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="3"/>
+				<property name="hidden" value="true"/>							
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_KillBossFire" phase="4"/>
+			
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossFire_key" />
+				<property name="needed_count" value="1" />          
+				<property name="target_tags" value="BossFire"/>
+				<property name="phase" value="4"/>							  
+			</objective> 
+			
+			<objective type="StayWithin" phase="4">
+				<property name="radius" value="60"/>
+			</objective>
+			
+			<objective type="ReturnToNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+			<reward type="Exp" value="10750"/>
+		<reward type="Item" id="casinoCoin" value="3000"/>
+
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		</quest>
+		
+		<quest id="ZINCBomber">
+	 	    <property name="name_key" value="ZombieINC_challenge_tier4_KillBossBomber_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier4_KillBossBomber_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier4_KillBossBomber_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="true"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="insane"/>
+		    <property name="difficulty_tier" value="5"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier4_KillBossBomber_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier4_KillBossBomber_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier4_KillBossBomber_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier4_KillBossBomber_completion"/> 
+			
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="3"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="2"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+				<property name="optional" value="true" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="EntityKill">             
+				<property name="needed_count" value="7" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="3"/>
+				<property name="hidden" value="true"/>							
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_KillBossBomber" phase="4"/>
+			
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossBomber_key" />
+				<property name="needed_count" value="1" />
+				<property name="target_tags" value="BossBomber"/>
+				<property name="phase" value="4"/>							  
+			</objective> 
+					
+			<objective type="StayWithin" phase="4">
+				<property name="radius" value="60"/>
+			</objective>
+					
+			<objective type="ReturnToNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+			<reward type="Exp" value="25400"/>
+			<reward type="Item" id="casinoCoin" value="12300"/>
+
+			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		</quest>
+		
+		
+		<quest id="ZINCScientist">
+	 	    <property name="name_key" value="ZombieINC_challenge_tier4_KillBossScientist_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier4_KillBossScientist_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier4_KillBossScientist_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="true"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="very hard"/>
+		    <property name="difficulty_tier" value="4"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier4_KillBossScientist_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier4_KillBossScientist_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier4_KillBossScientist_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier4_KillBossScientist_completion"/> 
+			
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="2"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="2"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+				<property name="optional" value="true" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="EntityKill">             
+				<property name="needed_count" value="7" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="3"/>
+				<property name="hidden" value="true"/>							
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_KillBossScientist" phase="4"/>
+			
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossScientist_key" />
+				<property name="needed_count" value="1" />
+				<property name="target_tags" value="BossScientist"/>
+				<property name="phase" value="4"/>				
+			</objective> 
+				
+			<objective type="StayWithin" phase="4">
+				<property name="radius" value="60"/>
+			</objective>
+				
+			<objective type="ReturnToNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+			<reward type="Exp" value="12400"/>
+		<reward type="Item" id="casinoCoin" value="5300"/>
+
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		</quest>
+		
+		<quest id="ZINCDemolition">
+	 	    <property name="name_key" value="ZombieINC_challenge_tier5_KillBossDemolition_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier5_KillBossDemolition_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier5_KillBossDemolition_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="true"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="insane"/>
+		    <property name="difficulty_tier" value="6"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier5_KillBossDemolition_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier5_KillBossDemolition_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier5_KillBossDemolition_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier5_KillBossDemolition_completion"/> 
+			
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="3"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="2"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+				<property name="optional" value="true" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="EntityKill">              
+				<property name="needed_count" value="10" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="3"/>
+				<property name="hidden" value="true"/>							
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_KillBossDemolition" phase="4"/>
+			
+			<objective type="EntityKill">
+				<property name="objective_name_key" value="ZombieINC_KillBossDemolition_key" />
+				<property name="needed_count" value="1" />          
+				<property name="target_tags" value="BossDemolition"/>
+				<property name="phase" value="4"/>							  
+			</objective> 
+				
+			<objective type="StayWithin" phase="4">
+				<property name="radius" value="60"/>
+			</objective>
+				
+			<objective type="ReturnToNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="5"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+			<reward type="Exp" value="40000"/>
+		<reward type="Item" id="casinoCoin" value="15000"/>
+
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		</quest>
+	
+	<!-- Tier 1-2 Defense Jobs -->
+	
+	<quest id="ZINCDefensePOI1">
+			<property name="name_key" value="ZombieINC_challenge_tier1_DefensePOI_name" />
+			<property name="subtitle_key" value="ZombieINC_challenge_tier1_DefensePOI_subtitle"/>
+			<property name="description_key" value="ZombieINC_challenge_tier1_DefensePOI_description"/>
+			<property name="icon" value="ui_game_symbol_quest"/>
+			<property name="repeatable" value="false"/>
+			<property name="category_key" value="quest"/>
+			<property name="offer_key" value="ZombieINC_challenge_tier1_DefensePOI_offer" />
+			<property name="difficulty" value="medium"/>
+			<property name="difficulty_tier" value="1" />
+			<property name="statement_key" value="ZombieINC_challenge_tier1_DefensePOI_statement"/>
+			<property name="response_key" value="ZombieINC_challenge_tier1_DefensePOI_response"/>
+			<property name="login_rally_reset" value="true"/>
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+
+			<property name="completiontype" value="TurnIn"/>
+			<property name="completion_key" value="ZombieINC_challenge_tier1_DefensePOI_completion"/>
+
+			<action type="GameEvent" id="ZombieINC_AddFlaresANDBow" phase="1"/>
+
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="1"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="4"/>
+			</action>
+			
+			<objective type="POIStayWithin" phase="4">
+				<property name="radius" value="30"/>
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_HotFixBow1" phase="4"/>
+			
+			<action type="GameEvent" id="ZombieINC_ArrowLandingExplanationEvent" phase="4"/>
+			
+			<objective type="GameEvent" phase="4">
+				<property name="event" value="ZombieINC_ArrowFlareSuccessEventGo"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			
+			
+			
+			<objective type="POIStayWithin" phase="5">
+				<property name="radius" value="30"/>
+			</objective>
+							
+			<objective type="EntityKill">
+				<property name="needed_count" value="5" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="5"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="GameEvent" phase="5">
+				<property name="event" value="ZombieINC_DefenseWave_tier1_1"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_HotFix1" phase="5"/>
+		
+			<action type="GameEvent" id="ZombieINC_ArrowLandingExplanationEvent2" phase="6"/>
+		
+			<objective type="GameEvent" phase="6">
+				<property name="event" value="ZombieINC_ArrowFlareSuccessEventGo"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<objective type="POIStayWithin" phase="6" >
+				<property name="radius" value="35"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="6" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="7"/>
+				<property name="optional" value="true"/>				
+			</objective>
+			
+			<objective type="POIStayWithin" phase="7" >
+				<property name="radius" value="35"/>
+			</objective>
+			
+			<objective type="GameEvent" phase="7">
+				<property name="event" value="ZombieINC_DefenseWave_tier1_2"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_ArrowLandingExplanationEvent2" phase="8"/>
+		
+			<objective type="GameEvent" phase="8">
+				<property name="event" value="ZombieINC_ArrowFlareSuccessEventGo"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<objective type="POIStayWithin" phase="8" >
+				<property name="radius" value="35"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="6" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="9"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="POIStayWithin" phase="9" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="9">
+				<property name="event" value="ZombieINC_DefenseWave_tier1_3"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			
+			
+			<objective type="ReturnToNPC">
+				<property name="phase" value="10"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="11"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<reward type="Exp" value="5060"/>
+			<reward type="Item" id="casinoCoin" value="1800"/>
+
+			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+			
+		</quest>
+	
+	
+	
+		<quest id="ZINCDefensePOI2">
+			<property name="name_key" value="ZombieINC_challenge_tier2_DefensePOI_name" />
+			<property name="subtitle_key" value="ZombieINC_challenge_tier2_DefensePOI_subtitle"/>
+			<property name="description_key" value="ZombieINC_challenge_tier2_DefensePOI_description"/>
+			<property name="icon" value="ui_game_symbol_quest"/>
+			<property name="repeatable" value="false"/>
+			<property name="category_key" value="quest"/>
+			<property name="offer_key" value="ZombieINC_challenge_tier2_DefensePOI_offer" />
+			<property name="difficulty" value="very hard"/>
+			<property name="difficulty_tier" value="2" />
+			<property name="statement_key" value="ZombieINC_challenge_tier2_DefensePOI_statement"/>
+			<property name="response_key" value="ZombieINC_challenge_tier2_DefensePOI_response"/>
+			<property name="login_rally_reset" value="true"/>
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+			<property name="completiontype" value="TurnIn"/>
+			<property name="completion_key" value="ZombieINC_challenge_tier2_DefensePOI_completion"/>
+
+			<action type="GameEvent" id="ZombieINC_AddFlaresANDBow" phase="1"/>
+
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome"  />
+				<property name="biome_filter" value="burnt_forest"  />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="1"  />
+		    </objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="3"/>
+			</action>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="4"/>
+			</action>
+			
+			<objective type="POIStayWithin" phase="4">
+				<property name="radius" value="30"/>
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_HotFixBow1" phase="4"/>
+			
+			<action type="GameEvent" id="ZombieINC_ArrowLandingExplanationEvent" phase="4"/>
+			
+			<objective type="GameEvent" phase="4">
+				<property name="event" value="ZombieINC_ArrowFlareSuccessEventGo"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			
+		
+			<objective type="EntityKill">
+				<property name="needed_count" value="6" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="5"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="GameEvent" phase="5">
+				<property name="event" value="ZombieINC_DefenseWave_tier2_1"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_HotFix1" phase="5"/>
+		
+			<objective type="POIStayWithin" phase="6">
+				<property name="radius" value="30"/>
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_ArrowLandingExplanationEvent2" phase="6"/>
+			
+			<objective type="GameEvent" phase="6">
+				<property name="event" value="ZombieINC_ArrowFlareSuccessEventGo"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="7" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="7"/>
+				<property name="optional" value="true"/>				
+			</objective>
+			
+			<objective type="POIStayWithin" phase="7" >
+				<property name="radius" value="35"/>
+			</objective>
+			
+			<objective type="GameEvent" phase="7">
+				<property name="event" value="ZombieINC_DefenseWave_tier2_2"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="POIStayWithin" phase="8">
+				<property name="radius" value="30"/>
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_ArrowLandingExplanationEvent2" phase="8"/>
+			
+			<objective type="GameEvent" phase="8">
+				<property name="event" value="ZombieINC_ArrowFlareSuccessEventGo"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="7" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="9"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="POIStayWithin" phase="9" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="9">
+				<property name="event" value="ZombieINC_DefenseWave_tier2_3"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_DefenseWave_tier2_AddQuest" phase="10">
+				<property name="delay" value="10"/>
+			</action>
+			
+			<objective type="Time" phase="10">
+				<property name="time" value="10"/>
+				<property name="force_phase_finish" value="true"/>
+				<property name="hidden" value="true"/>
+			</objective>
+			
+			<objective type="ReturnToNPC">
+				<property name="phase" value="10"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>			
+			
+			<objective type="InteractWithNPC">
+				<property name="phase" value="10"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
+		</quest>
+		
+		<quest id="ZINCDefensePOI2Part2">
+			<property name="name_key" value="ZombieINC_challenge_tier2_DefensePOI_name" />
+			<property name="subtitle_key" value="ZombieINC_challenge_tier2_DefensePOI_subtitle"/>
+			<property name="description_key" value="ZombieINC_challenge_tier2_DefensePOI_description"/>
+			<property name="icon" value="ui_game_symbol_quest"/>
+			<property name="repeatable" value="false"/>
+			<property name="category_key" value="quest"/>
+			<property name="offer_key" value="ZombieINC_challenge_tier2_DefensePOI_offer" />
+			<property name="difficulty" value="very hard"/>
+			<property name="difficulty_tier" value="2" />
+			<property name="statement_key" value="ZombieINC_challenge_tier2_DefensePOI_statement"/>
+			<property name="response_key" value="ZombieINC_challenge_tier2_DefensePOI_response"/>
+			<property name="login_rally_reset" value="true"/>
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+
+			<property name="completiontype" value="TurnIn"/>
+			<property name="completion_key" value="ZombieINC_challenge_tier2_DefensePOI_completion"/>
+
+			<action type="TrackQuest"/>						
+								
+			<objective type="Time" phase="1">
+				<property name="time" value="10"/>
+			</objective>
+									
+			<objective type="EntityKill">
+				<property name="needed_count" value="7" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="2"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="GameEvent" phase="2">
+				<property name="event" value="ZombieINC_DefenseWave_tier2_4"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<objective type="ReturnToNPC">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+
+			<reward type="Exp" value="5060"/>
+			<reward type="Item" id="casinoCoin" value="3400"/>
+			
+
+			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+			
+		</quest>
+		<!-- Tier 3-4 Defense Jobs -->
+	
+	<quest id="ZINCDefenseArea3">
+		    <property name="name_key" value="ZombieINC_challenge_tier3_DefenseConstruction_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier3_DefenseConstruction_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier3_DefenseConstruction_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="false"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="hard"/>
+		    <property name="difficulty_tier" value="3"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier3_DefenseConstruction_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier3_DefenseConstruction_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier3_DefenseConstruction_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier3_DefenseConstruction_completion"/>
+
+
+			<objective type="RandomGotoNPC" phase="1">
+				<property name="completion_distance" value="20"/>
+				<property name="distance" value="250-500"/>
+				<property name="nav_object" value="quest" />
+			</objective>	
+	
+			<objective type="RallyPoint">
+				<property name="start_mode" value="Create"/>
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			                				
+			<objective type="StayWithin">
+				<property name="phase" value="3"/>
+				<property name="radius" value="35"/>
+			</objective>
+
+			<objective type="TreasureChest">
+				<property name="phase" value="3" />
+				<property name="block" value="ZombieINC_BuriedChestDefenseConstructionT3"/>
+				<property name="default_radius" value="9"/>
+				<property name="container_type" value="Supplies"/>
+				<property name="nav_object" value="treasure" />
+				<property name="direct_nav_object" value="treasure_direct" />
+				<property name="blocks_per_reduction" value="1" />
+				<property name="radius_reduction_sound" value="ui_radius_shrink" />
+				<property name="use_nearby" value="true" />
+			</objective>
+		
+			 <action type="GameEvent" id="ZombieINC_MultiplayerCheckPhaseEventBuff" phase="3"/>
+		
+			<objective type="FetchFromTreasure">	        
+				<property name="phase" value="4" />
+				<property name="block" value="ZombieINC_BuriedChestDefenseConstructionT3"/>
+				<property name="quest_item_ID" value="1"/>
+				<property name="item_count" value="1"/>
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_AddZombieLure" phase="4"/>	
+		
+			
+		
+			<objective type="StayWithin" phase="5" >
+				<property name="radius" value="35"/>
+			</objective>
+	   
+			<objective type="BlockPlace" id="ZombieINC_capChimneyLargeSmoke" value="1" phase="5"/>
+	   	        	 
+			<action type="GameEvent" id="ZombieINC_tier3_DefenseConstruction_Annotation_event" phase="5"/>						
+			<action type="GameEvent" id="ZombieINC_tier3_DefenseConstruction_ToolbeltTip_event" phase="5"/>
+			<action type="GameEvent" id="ZombieINC_tier3_DefenseConstruction_ChatMessage_event" phase="5"/>
+			
+			<objective type="BlockPlace" id="ZombieINC_woodShapes:VariantHelper" value="40" phase="5">
+				<property name="optional" value="true"/>
+			</objective>
+	      	   
+			 
+		
+			<objective type="GameEvent" phase="6">
+				<property name="event" value="ZombieINC_MultiplayerCheckPhaseEvent"/>					
+				<property name="hidden" value="true"/>	
+			</objective> 
+			   
+			<objective type="StayWithin" phase="7" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="EntityKill">
+				<property name="needed_count" value="10" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="7"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="GameEvent" phase="7">
+				<property name="event" value="ZombieINC_DefenseWave_tier3_1"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="Time" phase="8">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="11" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="9"/>
+				<property name="optional" value="true"/>				
+			</objective>
+			
+			<objective type="StayWithin" phase="9" >
+				<property name="radius" value="35"/>
+			</objective>
+			
+			<objective type="GameEvent" phase="9">
+				<property name="event" value="ZombieINC_DefenseWave_tier3_2"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="Time" phase="10">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="13" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="11"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="11" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="11">
+				<property name="event" value="ZombieINC_DefenseWave_tier3_3"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="Time" phase="12">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="15" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="13"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="13" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="13">
+				<property name="event" value="ZombieINC_DefenseWave_tier3_4"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+											
+			<objective type="ReturnToNPC">
+				<property name="phase" value="14"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+        				
+			<objective type="InteractWithNPC">
+				<property name="phase" value="14"/>
+				<property name="nav_object" value="return_to_trader" />						
+			</objective>
+
+               
+			<reward type="Exp" value="6750"/>
+			<reward type="Item" id="casinoCoin" value="5000"/>
+			
+
+			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	
+		
+				
+	</quest>
+	
+	<quest id="ZINCDefenseArea4">
+		    <property name="name_key" value="ZombieINC_challenge_tier4_DefenseConstruction_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier4_DefenseConstruction_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier4_DefenseConstruction_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="false"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="very hard"/>
+		    <property name="difficulty_tier" value="4"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier4_DefenseConstruction_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier4_DefenseConstruction_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier4_DefenseConstruction_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier4_DefenseConstruction_completion"/>
+
+
+			<objective type="RandomGotoNPC" phase="1">
+				<property name="completion_distance" value="20"/>
+				<property name="distance" value="250-500"/>
+				<property name="nav_object" value="quest" />
+			</objective>
+
+			<objective type="RallyPoint">
+				<property name="start_mode" value="Create"/>
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+		               				
+			<objective type="StayWithin">
+				<property name="phase" value="3"/>
+				<property name="radius" value="35"/>
+			</objective>
+
+			<objective type="TreasureChest">
+				<property name="phase" value="3" />
+				<property name="block" value="ZombieINC_BuriedChestDefenseConstructionT4"/>
+				<property name="default_radius" value="9"/>
+				<property name="container_type" value="Supplies"/>
+				<property name="nav_object" value="treasure" />
+				<property name="direct_nav_object" value="treasure_direct" />
+				<property name="blocks_per_reduction" value="1" />
+				<property name="radius_reduction_sound" value="ui_radius_shrink" />
+				<property name="use_nearby" value="true" />
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_MultiplayerCheckPhaseEventBuff" phase="3"/>
+		
+			<objective type="FetchFromTreasure">		        
+				<property name="phase" value="4" />
+				<property name="block" value="ZombieINC_BuriedChestDefenseConstructionT4"/>
+				<property name="quest_item_ID" value="1"/>
+				<property name="item_count" value="1"/>
+			</objective>
+				
+			<objective type="GameEvent" phase="5">
+				<property name="event" value="ZombieINC_MultiplayerCheckPhaseEvent"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_tier4_DefenseConstruction_Annotation_event" phase="5"/>		    	
+			<action type="GameEvent" id="ZombieINC_tier4_DefenseConstruction_ToolbeltTip_event" phase="5"/>
+			<action type="GameEvent" id="ZombieINC_tier4_DefenseConstruction_ChatMessage_event" phase="5"/>
+		
+			<objective type="Time" phase="5">
+				<property name="time" value="40"/>
+			</objective>	
+				
+			<objective type="BlockPlace" id="ZombieINC_cobblestoneShapes:VariantHelper" value="60" phase="5">
+				<property name="optional" value="true"/>
+			</objective>
+		
+			<objective type="EntityKill">
+				<property name="needed_count" value="10" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="6"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="6" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="6">
+				<property name="event" value="ZombieINC_DefenseWave_tier4_1"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="Time" phase="7">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="11" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="8"/>
+				<property name="optional" value="true"/>				
+			</objective>
+			
+			<objective type="StayWithin" phase="8" >
+				<property name="radius" value="35"/>
+			</objective>
+			
+			<objective type="GameEvent" phase="8">
+				<property name="event" value="ZombieINC_DefenseWave_tier4_2"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="Time" phase="9">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="13" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="10"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="10" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="10">
+				<property name="event" value="ZombieINC_DefenseWave_tier4_3"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="Time" phase="11">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="15" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="12"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="12" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="12">
+				<property name="event" value="ZombieINC_DefenseWave_tier4_4"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="Time" phase="13">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="17" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="14"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="14" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="14">
+				<property name="event" value="ZombieINC_DefenseWave_tier4_5"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="Time" phase="15">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="18" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="16"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="16" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="16">
+				<property name="event" value="ZombieINC_DefenseWave_tier4_6"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+					
+		
+			<objective type="ReturnToNPC">
+				<property name="phase" value="17"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+		
+			<objective type="InteractWithNPC">
+				<property name="phase" value="17"/>
+				<property name="nav_object" value="return_to_trader" />
+			
+			
+			</objective>
+
+               
+			<reward type="Exp" value="6750"/>
+			<reward type="Item" id="casinoCoin" value="10000"/>
+			
+
+			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		
+	</quest>
+	
+	<quest id="ZINCDefenseTrader5">
+		    <property name="name_key" value="ZombieINC_challenge_tier5_DefenseConstruction_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier5_DefenseConstruction_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier5_DefenseConstruction_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="false"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="Insane"/>
+		    <property name="difficulty_tier" value="5"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier5_DefenseConstruction_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier5_DefenseConstruction_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier5_DefenseConstruction_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier5_DefenseConstruction_completion"/>
+
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="1"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="1"/>
+
+			<objective type="RandomGotoNPC" phase="1">
+				<property name="completion_distance" value="20"/>
+				<property name="distance" value="250-500"/>
+				<property name="nav_object" value="quest" />
+			</objective>
+
+			<objective type="RallyPoint">
+				<property name="start_mode" value="Create"/>
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+		               				
+			<objective type="StayWithin">
+				<property name="phase" value="3"/>
+				<property name="radius" value="35"/>
+			</objective>
+
+			
+
+			<objective type="TreasureChest">
+				<property name="phase" value="3" />
+				<property name="block" value="ZombieINC_BuriedChestDefenseConstructionT5"/>
+				<property name="default_radius" value="9"/>
+				<property name="container_type" value="Supplies"/>
+				<property name="nav_object" value="treasure" />
+				<property name="direct_nav_object" value="treasure_direct" />
+				<property name="blocks_per_reduction" value="1" />
+				<property name="radius_reduction_sound" value="ui_radius_shrink" />
+				<property name="use_nearby" value="true" />
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_MultiplayerCheckPhaseEventBuff" phase="3"/>
+		
+			<objective type="FetchFromTreasure">		        
+				<property name="phase" value="4" />
+				<property name="block" value="ZombieINC_BuriedChestDefenseConstructionT5"/>
+				<property name="quest_item_ID" value="1"/>
+				<property name="item_count" value="1"/>
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_AddZombieLure" phase="4"/>	
+				
+			<objective type="BlockPlace" id="ZombieINC_capChimneyLargeSmoke" value="1" phase="5"/>
+			
+			<objective type="BlockPlace" id="ZombieINC_cobblestoneShapes:VariantHelper" value="60" phase="5">
+				<property name="optional" value="true"/>
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="5"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="5"/>
+		
+			
+		
+			<objective type="GameEvent" phase="6">
+				<property name="event" value="ZombieINC_MultiplayerCheckPhaseEvent"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<objective type="EntityKill">
+				<property name="needed_count" value="10" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="7"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="7" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="7">
+				<property name="event" value="ZombieINC_DefenseWave_tier5_1"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="8"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="8"/>
+		
+			<objective type="Time" phase="8">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="12" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="9"/>
+				<property name="optional" value="true"/>				
+			</objective>
+			
+			<objective type="StayWithin" phase="9" >
+				<property name="radius" value="35"/>
+			</objective>
+			
+			<objective type="GameEvent" phase="9">
+				<property name="event" value="ZombieINC_DefenseWave_tier5_2"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="10"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="10"/>
+		
+			<objective type="Time" phase="10">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="14" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="11"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="11" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="11">
+				<property name="event" value="ZombieINC_DefenseWave_tier5_3"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="12"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="12"/>
+		
+			<objective type="Time" phase="12">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="14" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="13"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="13" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="13">
+				<property name="event" value="ZombieINC_DefenseWave_tier5_4"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="14"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="14"/>
+		
+			<objective type="Time" phase="14">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="14" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="15"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="15" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="15">
+				<property name="event" value="ZombieINC_DefenseWave_tier5_5"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="16"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="16"/>
+		
+			<objective type="Time" phase="16">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="14" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="17"/>
+				<property name="optional" value="true"/>				
+			</objective>
+		
+			<objective type="StayWithin" phase="17" >
+				<property name="radius" value="35"/>
+			</objective>
+		
+			<objective type="GameEvent" phase="17">
+				<property name="event" value="ZombieINC_DefenseWave_tier5_6"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+					
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="18"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="18"/>
+		
+			<objective type="ReturnToNPC">
+				<property name="phase" value="18"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="19"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="19"/>
+		
+			<action type="GameEvent" id="ZombieINC_tier5_DefenseChatAmbushed" phase="19"/>
+		
+			<objective type="Time" phase="19">
+				<property name="time" value="5"/>
+			</objective>
+		
+			<objective type="EntityKill">
+				<property name="needed_count" value="10" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="20"/>
+				<property name="optional" value="true"/>				
+			</objective>
+				
+			<objective type="GameEvent" phase="20">
+				<property name="event" value="ZombieINC_DefenseWave_tier5_7"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="21"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="21"/>
+			
+			<objective type="Time" phase="21">
+				<property name="time" value="10"/>
+			</objective>
+		
+			<objective type="EntityKill">
+				<property name="needed_count" value="13" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="22"/>
+				<property name="optional" value="true"/>				
+			</objective>
+				
+			<objective type="GameEvent" phase="22">
+				<property name="event" value="ZombieINC_DefenseWave_tier5_8"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetTimeCheckRemover" phase="23"/>
+		
+			<objective type="InteractWithNPC">
+				<property name="phase" value="23"/>
+				<property name="nav_object" value="return_to_trader" />
+			
+			
+			</objective>
+
+               
+			<reward type="Exp" value="6750"/>
+			<reward type="Item" id="casinoCoin" value="25000"/>
+			
+
+			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		
+	</quest>
+	
+	<quest id="ZINCDefenseTrader6">
+		    <property name="name_key" value="ZombieINC_challenge_tier6_DefenseConstruction_name"/>
+		    <property name="subtitle_key" value="ZombieINC_challenge_tier6_DefenseConstruction_subtitle"/>
+		    <property name="description_key" value="ZombieINC_challenge_tier6_DefenseConstruction_description"/>
+		    <property name="icon" value="ui_game_symbol_quest"/>
+		    <property name="repeatable" value="false"/>
+		    <property name="category_key" value="quest"/>
+		    <property name="difficulty" value="Ridiculous"/>
+		    <property name="difficulty_tier" value="6"/>
+		    <property name="offer_key" value="ZombieINC_challenge_tier6_DefenseConstruction_offer"/>
+		    <property name="statement_key" value="ZombieINC_challenge_tier6_DefenseConstruction_statement"/>
+		    <property name="response_key" value="ZombieINC_challenge_tier6_DefenseConstruction_response"/>
+		    <property name="login_rally_reset" value="true"/>		
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value=""  />
+			<property name="shareable" value="true"/>
+			
+		    <property name="completiontype" value="TurnIn"/>
+		    <property name="completion_key" value="ZombieINC_challenge_tier6_DefenseConstruction_completion"/>
+		    
+			<action type="GameEvent" id="ZombieINC_AddWarriosHelmet" phase="1"/>
+			
+			
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="1"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="1"/>
+			
+			<objective type="Wear" id="ZombieINC_WarriorArmorSteelHelmet">
+				<property name="phase" value="1"/>
+			</objective>
+				
+	
+			
+			<action type="GameEvent" id="ZombieINC_MultiplayerCheckPhaseEventBuff" phase="1"/>
+		
+			<objective type="GameEvent" phase="2">
+				<property name="event" value="ZombieINC_MultiplayerCheckPhaseEvent"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="3"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="3"/>
+			
+			<objective type="Time" phase="3">
+				<property name="time" value="5"/>
+			</objective>	
+						
+			<objective type="EntityKill">
+				<property name="needed_count" value="11" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="4"/>
+				<property name="optional" value="true"/>				
+			</objective>
+					
+			<objective type="GameEvent" phase="4">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_1"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="5"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="5"/>
+		
+			<objective type="Time" phase="5">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="12" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="6"/>
+				<property name="optional" value="true"/>				
+			</objective>
+			
+		
+			<objective type="GameEvent" phase="6">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_2"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="7"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="7"/>
+		
+			<objective type="Time" phase="7">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="11" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="8"/>
+				<property name="optional" value="true"/>				
+			</objective>
+							
+			<objective type="GameEvent" phase="8">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_3"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="9"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="9"/>
+			
+			<objective type="Time" phase="9">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="10" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="10"/>
+				<property name="optional" value="true"/>				
+			</objective>
+						
+			<objective type="GameEvent" phase="10">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_4"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="11"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="11"/>
+		
+			<objective type="Time" phase="11">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="12" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="12"/>
+				<property name="optional" value="true"/>				
+			</objective>
+				
+			<objective type="GameEvent" phase="12">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_5"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+		
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="13"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="13"/>
+			
+			<objective type="Time" phase="13">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="14" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="14"/>
+				<property name="optional" value="true"/>				
+			</objective>
+					
+			<objective type="GameEvent" phase="14">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_6"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="15"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="15"/>
+			
+			<objective type="Time" phase="15">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="12" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="16"/>
+				<property name="optional" value="true"/>				
+			</objective>
+						
+			<objective type="GameEvent" phase="16">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_7"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="17"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="17"/>
+			
+			<objective type="Time" phase="17">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="14" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="18"/>
+				<property name="optional" value="true"/>				
+			</objective>
+					
+			<objective type="GameEvent" phase="18">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_8"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="19"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="19"/>
+			
+			<objective type="Time" phase="19">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="14" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="20"/>
+				<property name="optional" value="true"/>				
+			</objective>
+							
+			<objective type="GameEvent" phase="20">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_9"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+			
+			<action type="GameEvent" id="ZombieINC_DefenseTraderTimeCheckBuff" phase="21"/>
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetWeather" phase="21"/>
+			
+			<objective type="Time" phase="21">
+				<property name="time" value="10"/>
+			</objective>
+			
+			<objective type="EntityKill">
+				<property name="needed_count" value="16" />
+				<property name="target_tags" value="zombie"/>
+				<property name="phase" value="22"/>
+				<property name="optional" value="true"/>				
+			</objective>
+						
+			<objective type="GameEvent" phase="22">
+				<property name="event" value="ZombieINC_DefenseWave_tier6_10"/>					
+				<property name="hidden" value="true"/>	
+			</objective>
+					
+			<action type="GameEvent" id="ZombieINC_DefenseTraderSetTimeCheckRemover" phase="23"/>		
+		
+			<objective type="ReturnToNPC">
+				<property name="phase" value="23"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+		
+			<objective type="InteractWithNPC">
+				<property name="phase" value="23"/>
+				<property name="nav_object" value="return_to_trader" />						
+			</objective>
+
+               
+			<reward type="Exp" value="67500"/>
+			<reward type="Item" id="casinoCoin" value="100000"/>
+			
+
+			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="6"/>
+			<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="6"/>
+			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="6"/>
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="6"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="6"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="6"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
+		
+	</quest>
+	
+	
+	</insertAfter>
+
+
+	<append xpath="/quests/quest_list[@id='trader_quests']">
+				
+		<quest id="ZINCCraven"/>
+		<quest id="ZINCDog"/>
+		<quest id="ZINCBiker"/>
+		<quest id="ZINCMultiply"/>
+		<quest id="ZINCFire"/>
+		<quest id="ZINCScientist"/>
+		<quest id="ZINCBomber"/>
+		<quest id="ZINCDemolition"/>
+		
+		<!--<quest id="ZINCDefensePOI1"/>
+		<quest id="ZINCDefensePOI2"/>
+		<quest id="ZINCDefenseArea3"/>
+		<quest id="ZINCDefenseArea4"/>
+		<quest id="ZINCDefenseTrader5"/>
+		<quest id="ZINCDefenseTrader6"/>-->
+		
+	</append>
+</Config> 				
+
